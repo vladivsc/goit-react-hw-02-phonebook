@@ -29,7 +29,7 @@ class Phonebook extends Component {
         number,
       };
 
-      return { contacts: [newContact, ...contacts], name: '', number: '' };
+      return { contacts: [newContact, ...contacts] };
     });
   };
 
@@ -72,6 +72,7 @@ class Phonebook extends Component {
     const { addContact, removeContact, handleFilter } = this;
     const { filter } = this.state;
     const contacts = this.getFilteredContacts();
+    const isContacts = Boolean(contacts.length)
 
     return (
       <div className={styles.wrapper}>
@@ -81,6 +82,7 @@ class Phonebook extends Component {
         <h2 className={styles.title}>Contacts</h2>
         <Filter handleChange={handleFilter} filter={filter} />
         <ContactList removeContact={removeContact} contacts={contacts} />
+        {!isContacts && <p>Any contacts in your phonebook!</p>}
       </div>
     );
   }
