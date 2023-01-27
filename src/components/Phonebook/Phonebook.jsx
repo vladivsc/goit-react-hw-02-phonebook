@@ -82,7 +82,7 @@ class Phonebook extends Component {
         <h2 className={styles.title}>Contacts</h2>
         <Filter handleChange={handleFilter} filter={filter} />
         <ContactList removeContact={removeContact} contacts={contacts} />
-        {!isContacts && <p>Any contacts in your phonebook!</p>}
+        {!isContacts && <p>No contacts in your phonebook!</p>}
       </div>
     );
   }
